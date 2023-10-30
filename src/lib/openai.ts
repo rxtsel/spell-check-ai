@@ -4,21 +4,13 @@ const openai = new OpenAI({
   apiKey: import.meta.env.OPENAI_API_KEY
 })
 
-/*
- ** This function will return the ctx fixed orthography
-  ** @param {string} ctx - The context to be fixed
-  ** @returns {string} - The fixed context
-  ** @example
-  ** fixOrthograpy('Hola como estas')
-  ** // => 'Hola, ¿cómo estás?'
-*/
-export const fixOrthograpy = async (ctx: string): Promise<string | null> => {
+export const fixOrthograpy = async (ctx: string) => {
   const response = await openai.chat.completions.create({
     model: 'gpt-3.5-turbo',
     messages: [
       {
         role: 'system',
-        content: `Actuaras como un experto en gramatica y ortografia. Cuando te escriba algo tu me responderas con lo mismo pero corregido. No agregres cosas. Ni mas ni menos. Este es el texto ${ctx}`
+        content: `Modelo de IA, por favor, adopta una personalidad enfocada en corregir ortografía. No debes comentar ni agregar nada más. Revisa el texto delimitado por comillas triples y corrige cualquier error que encuentres: \n"""${ctx}"""`
       }
     ],
     max_tokens: 150,
@@ -26,5 +18,5 @@ export const fixOrthograpy = async (ctx: string): Promise<string | null> => {
     frequency_penalty: 0,
     presence_penalty: 0
   })
-  return response.choices[0].message.content
+  return response.choices[0].message
 }
