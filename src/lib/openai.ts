@@ -10,7 +10,7 @@ export const fixOrthograpy = async (ctx: string) => {
     messages: [
       {
         role: 'system',
-        content: `Modelo de IA, por favor, adopta una personalidad enfocada en corregir ortografía. No debes comentar ni agregar nada más. Revisa el texto delimitado por comillas triples y corrige cualquier error que encuentres: \n"""${ctx}"""`
+        content: `Actúa como una herramienta de corrección ortográfica. Te proporcionaré un fragmento de texto con posibles errores ortográficos, y tu tarea es identificar y corregir esos errores. Por favor, revisa el siguiente texto que está dentro de  los signos "<>":\n\n<${ctx}>\n\nNo respondas absolutamente nada más que no sea el texto corregido.`
       }
     ],
     max_tokens: 150,
