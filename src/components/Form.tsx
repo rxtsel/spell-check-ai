@@ -128,7 +128,7 @@ export const Form: React.FC = () => {
         {answers.map((answer, index) => (
           <li
             key={index}
-            className={`message flex items-start gap-4${
+            className={`message flex items-start gap-4 ${
               answer.role === 'user' ? 'self-end' : 'cursor-pointer'
             }`}
             {...(answer.role === 'assistant' && {
@@ -138,15 +138,15 @@ export const Form: React.FC = () => {
             })}
           >
             <div
-              className={`w-12 h-12 text-white border  shadow-inner ${
+              className={`w-12 h-12 text-white border shadow-inner rounded-full p-3 flex items-center justify-center ${
                 answer.role === 'user'
                   ? 'border-sky-500/20 shadow-sky-500 order-2'
                   : 'border-purple-500/20 shadow-purple-500'
-              } rounded-full p-3 flex items-center justify-center`}
+              }`}
             >
               {answer.role === 'assistant' ? <Robot /> : <User />}
             </div>
-            <p className="bg-zinc-900 rounded-xl max-w-full md:max-w-max paragraph px-5 py-4 text-pretty">
+            <p className="bg-zinc-900 rounded-xl w-full max-w-full md:max-w-max paragraph px-5 py-4 text-pretty whitespace-break-spaces">
               {answer.message}
             </p>
           </li>
