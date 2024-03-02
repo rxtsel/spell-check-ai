@@ -74,6 +74,8 @@ export const Form: React.FC = () => {
         console.error(error)
       })
       .finally(() => {
+        const notificationSound = new Audio('/notification.mp3')
+        notificationSound.play()
         setLoading(false)
         sclollToBottom()
       })
@@ -162,7 +164,7 @@ export const Form: React.FC = () => {
           value={valueTextArea}
           onChange={handleTextareaChange}
           onKeyDown={handleKeyDown}
-          className="outline-none resize-none bg-zinc-900 h-auto w-full rounded-full dark:text-slate-100 p-4 pr-[70px]"
+          className="outline-none resize-none bg-zinc-900 h-auto w-full rounded-full text-slate-100 p-4 pr-[70px]"
         />
         <button
           className={`rounded-full bg-purple-500 absolute bottom-0 right-0 h-full px-5 min-w-[86.63px] flex items-center justify-center ${
