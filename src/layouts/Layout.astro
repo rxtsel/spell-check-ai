@@ -1,4 +1,5 @@
 ---
+import Metatags from '../components/Metatags.astro'
 interface Props {
   title: string
 }
@@ -9,12 +10,7 @@ const { title } = Astro.props
 <!doctype html>
 <html lang="es">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon2.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    <Metatags title={title} />
   </head>
   <body class="min-h-screen bg-zinc-950 text-white bg-grid">
     <slot />
@@ -27,7 +23,7 @@ const { title } = Astro.props
   }
 
   ::-webkit-scrollbar {
-    @apply w-2 h-1 rounded-full;
+    @apply w-0 h-0 rounded-full;
   }
 
   ::-webkit-scrollbar-track {
@@ -44,10 +40,6 @@ const { title } = Astro.props
 
   .paragraph {
     text-wrap: pretty;
-  }
-
-  .message:last-child {
-    padding-bottom: 100px;
   }
 
   .loader {

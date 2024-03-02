@@ -1,0 +1,42 @@
+---
+interface Props {
+  title: string
+}
+
+import Analytics from './Analitycs.astro'
+import Favicons from './Favicons.astro'
+
+const { title } = Astro.props
+---
+
+<!-- Global Metadata -->
+<meta charset='UTF-8' />
+<meta name='viewport' content='width=device-width,initial-scale=1' />
+<meta name='generator' content={Astro.generator} />
+<meta name='author' content='Cristhian Melo' />
+<meta name='keywords' content="Spell Check AI es un corrector ortográfico y gramatical en línea que utiliza la inteligencia artificial para corregir automáticamente la gramática y la ortografía en cualquier texto." />
+<link rel='manifest' href='/site.webmanifest' />
+<Favicons />
+
+<!-- Canonical URL -->
+<link rel='canonical' href={new URL(Astro.url)} />
+
+<title>{title}</title>
+<meta name='title' content={title} />
+<meta name='description' content="Spell Check AI es un corrector ortográfico y gramatical en línea que utiliza la inteligencia artificial para corregir automáticamente la gramática y la ortografía en cualquier texto." />
+
+<!-- Open Graph / Facebook -->
+<meta property='og:type' content='website' />
+<meta property='og:url' content={Astro.url} />
+<meta property='og:title' content={title} />
+<meta property='og:description' content="Spell Check AI es un corrector ortográfico y gramatical en línea que utiliza la inteligencia artificial para corregir automáticamente la gramática y la ortografía en cualquier texto." />
+<meta property='og:image' content="https://rxtsel.dev/meta_tags_large_icon.png" />
+
+<!-- Twitter -->
+<meta property='twitter:card' content='summary_large_image' />
+<meta property='twitter:url' content={Astro.url} />
+<meta property='twitter:title' content={title} />
+<meta property='twitter:description' content="Spell Check AI es un corrector ortográfico y gramatical en línea que utiliza la inteligencia artificial para corregir automáticamente la gramática y la ortografía en cualquier texto." />
+<meta property='twitter:image' content="https://rxtsel.dev/meta_tags_large_icon.png" />
+
+<Analytics />
