@@ -114,11 +114,13 @@ export const Form: React.FC = () => {
   return (
     <>
       <Toast show={alert} />
-      <section className="fixed bottom-0 border-t overflow-hidden border-l border-r border-zinc-700 rounded-t-3xl w-fit h-full max-h-[68vh] lg:min-h-[600px] lg:max-h-[600px] p-4 md:p-10">
+      <section
+        className="fixed bottom-0 border-t overflow-hidden border-l border-r border-zinc-700 rounded-t-3xl
+        w-fit h-full max-h-[68vh] lg:min-h-[600px] lg:max-h-[600px]"
+      >
         <div
           id="messages-section"
-          className="w-full max-w-3xl mx-auto h-full flex flex-col shadow
-        overflow-y-auto relative md:bottom-5"
+          className="w-full max-w-3xl mx-auto h-full flex flex-col shadow overflow-y-auto relative md:bottom-5 p-4 md:p-10"
         >
           <ul className="h-full flex-grow flex-shrink flex flex-col space-y-4">
             <li className="flex items-start space-x-4">
@@ -135,7 +137,7 @@ export const Form: React.FC = () => {
             {answers.map((answer, index) => (
               <li
                 key={index}
-                className={`flex items-start gap-4 w-fit h-fit last:pb-20 md:last-pb-0 ${
+                className={`flex items-start gap-4 w-fit h-fit last:pb-24 md:last:pb-[72px] ${
                   answer.role === 'user' ? 'self-end' : ''
                 }`}
               >
